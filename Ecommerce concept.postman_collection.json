@@ -1,0 +1,199 @@
+{
+	"info": {
+		"_postman_id": "413e30f3-ba89-4b68-8125-c28121df1700",
+		"name": "Ecommerce concept",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18162111"
+	},
+	"item": [
+		{
+			"name": "Add Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Product Name\",\n  \"description\": \"Product Description\",\n  \"color\": [\n    {\n      \"color_name\": \"Red\",\n      \"color_code\": \"#FF0000\",\n      \"sizes\": [\n        {\n          \"size\": \"S\",\n          \"stock\": 10\n        },\n        {\n          \"size\": \"M\",\n          \"stock\": 5\n        }\n      ]\n    },\n    {\n      \"color_name\": \"Blue\",\n      \"color_code\": \"#0000FF\",\n      \"sizes\": [\n        {\n          \"size\": \"M\",\n          \"stock\": 8\n        },\n        {\n          \"size\": \"L\",\n          \"stock\": 12\n        }\n      ]\n    }\n  ],\n  \"price\": 100,\n  \"regularPrice\": 120,\n  \"discount\": 20,\n  \"quantity\": 50,\n  \"type\": \"fashion\",\n  \"category\": \"Clothing\",\n  \"brand\": \"Brand Name\",\n  \"rating\": [\n    {\n      \"user\": \"user1\",\n      \"rating\": 4\n    },\n    {\n      \"user\": \"user2\",\n      \"rating\": 5\n    }\n  ],\n  \"reviews\": [\n    {\n      \"user\": \"user1\",\n      \"review\": \"Great product!\",\n      \"createdAt\": \"2023-05-16T10:30:00.000Z\"\n    },\n    {\n      \"user\": \"user2\",\n      \"review\": \"Excellent quality.\",\n      \"createdAt\": \"2023-05-17T09:45:00.000Z\"\n    }\n  ],\n  \"images\":[\"www.image.com\"],\n  \"createdAt\": \"2023-05-15T08:00:00.000Z\",\n  \"updatedAt\": \"2023-05-16T14:20:00.000Z\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/products/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/api/products/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"user_id\": \"123456789\",\n  \"username\": \"john_doe\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"avatar\": \"https://example.com/avatar.png\",\n  \"email\": \"john.doe@example.com\",\n  \"password\": \"password123\",\n  \"bio\": \"I'm a software engineer.\",\n  \"dateOfBirth\": \"1990-01-01\",\n  \"country\": \"United States\",\n  \"phone\": \"+1 123-456-7890\",\n  \"language\": \"English\",\n  \"gender\": \"Male\",\n  \"status\": \"Active\",\n  \"role\": \"User\",\n  \"addresses\": [\n    {\n      \"type\": \"Billing\",\n      \"street\": \"123 Main St\",\n      \"city\": \"New York\",\n      \"state\": \"NY\",\n      \"country\": \"United States\",\n      \"postalCode\": \"10001\",\n      \"contactNo\": \"+1 123-456-7890\"\n    },\n    {\n      \"type\": \"Shipping\",\n      \"street\": \"456 Elm St\",\n      \"city\": \"Los Angeles\",\n      \"state\": \"CA\",\n      \"country\": \"United States\",\n      \"postalCode\": \"90001\",\n      \"contactNo\": \"+1 987-654-3210\"\n    }\n  ],\n  \"orders\": []\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsTmFtZSI6IkpvaG4gRG9lIiwiZW1haWwiOiJkb2UyQGV4YW1wbGUuY29tIiwicGhvbmUiOiIrODgwIDEyMy00NTYtNzg5MDkiLCJpYXQiOjE2ODUyODU2NjZ9.DDFKbsL1wTipHL99OsNws4TZ3v8IhYjpPJLFbCmlZaw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Johny\",\n  \"lastName\": \"Doe\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/users/646d128030d3d82b018dc8ca",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"users",
+						"646d128030d3d82b018dc8ca"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Vairant",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"variant\": {\n    \"color\": {\n      \"color_name\": \"Red\",\n      \"color_code\": \"#FF0000\"\n    },\n    \"image_id\": 1,\n    \"size\": {\n      \"size\": \"M\",\n      \"stock\": 50\n    },\n    \"sku\": \"SKU123\"\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/products/add-variant?productId=647c3771718ca9459668783f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"products",
+						"add-variant"
+					],
+					"query": [
+						{
+							"key": "productId",
+							"value": "647c3771718ca9459668783f"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/api/products/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
