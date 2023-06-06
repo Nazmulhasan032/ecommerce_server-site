@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  mongo_db:
+    image: mongo:latest
+    container_name: db_container_grasp_ecommerce
+    volumes:
+      - mongo_db:/data/db
+    restart: always
+
+    #node api container
+
+  api:
+    container_name: grasp_be_staging
+    image: grasp_image
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+
+    ports:
+      - "9001:9001"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      
+    environment:
+      - PORT=9001
+      - DB_URL=mongodb://mongo_db:27017/grasp_ecom
+      - TOKEN_SECRET=abcdefghijklmnopqrstuvwxyz
+      - LOCAL_API_URL=http://localhost:9001/
+
+    depends_on:
+      - mongo_db
+
+volumes:
+  mongo_db: {}
