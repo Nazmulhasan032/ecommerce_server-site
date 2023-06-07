@@ -12,7 +12,7 @@ import {
   searchProducts,
   addVariant,
 } from "../controllers/product.controller.js";
-import { uploadProductfiles } from "../middleware/uploader.js";
+
 
 router.post("/", addProduct);
 router.get("/all", getProducts);
