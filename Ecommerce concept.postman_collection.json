@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"name\": \"Product Name\",\n  \"description\": \"Product Description\",\n  \"color\": [\n    {\n      \"color_name\": \"Red\",\n      \"color_code\": \"#FF0000\",\n      \"sizes\": [\n        {\n          \"size\": \"S\",\n          \"stock\": 10\n        },\n        {\n          \"size\": \"M\",\n          \"stock\": 5\n        }\n      ]\n    },\n    {\n      \"color_name\": \"Blue\",\n      \"color_code\": \"#0000FF\",\n      \"sizes\": [\n        {\n          \"size\": \"M\",\n          \"stock\": 8\n        },\n        {\n          \"size\": \"L\",\n          \"stock\": 12\n        }\n      ]\n    }\n  ],\n  \"price\": 100,\n  \"regularPrice\": 120,\n  \"discount\": 20,\n  \"quantity\": 50,\n  \"type\": \"fashion\",\n  \"category\": \"Clothing\",\n  \"brand\": \"Brand Name\",\n  \"rating\": [\n    {\n      \"user\": \"user1\",\n      \"rating\": 4\n    },\n    {\n      \"user\": \"user2\",\n      \"rating\": 5\n    }\n  ],\n  \"reviews\": [\n    {\n      \"user\": \"user1\",\n      \"review\": \"Great product!\",\n      \"createdAt\": \"2023-05-16T10:30:00.000Z\"\n    },\n    {\n      \"user\": \"user2\",\n      \"review\": \"Excellent quality.\",\n      \"createdAt\": \"2023-05-17T09:45:00.000Z\"\n    }\n  ],\n  \"images\":[\"www.image.com\"],\n  \"createdAt\": \"2023-05-15T08:00:00.000Z\",\n  \"updatedAt\": \"2023-05-16T14:20:00.000Z\"\n}\n",
+					"raw": "{\n  \"name\": \"Product Name\",\n  \"brand\": \"Product Brand\",\n  \"description\": \"Product Description\",\n  \"price\": 10.99,\n  \"discount\": 0.2,\n  \"type\": \"fashion\",\n  \"category\": \"Clothing\",\n  \"new\": false,\n  \"sale\": false,\n  \"images\": [\n    {\n      \"image_id\": 1,\n      \"id\": \"image1\",\n      \"alt\": \"Product Image 1\",\n      \"src\": \"https://example.com/image1.jpg\"\n    },\n    {\n      \"image_id\": 2,\n      \"id\": \"image2\",\n      \"alt\": \"Product Image 2\",\n      \"src\": \"https://example.com/image2.jpg\"\n    }\n  ],\n  \"ratings\": [\n    {\n      \"user\": \"646d128030d3d82b018dc8ca\",\n      \"rating\": 4\n    }\n    \n  ],\n  \"reviews\": [\n    {\n      \"user\": \"646d128030d3d82b018dc8ca\",\n      \"review\": \"Great product!\"\n    }\n    \n  ],\n  \"variants\": [\n    {\n      \"color\": {\n        \"color_name\": \"Red\",\n        \"color_code\": \"#FF0000\"\n      },\n      \"id\": \"variant1\",\n      \"image_id\": 1,\n      \"size\": {\n        \"size\": \"M\",\n        \"stock\": 50\n      },\n      \"sku\": \"SKU123\"\n    },\n    {\n      \"color\": {\n        \"color_name\": \"Blue\",\n        \"color_code\": \"#0000FF\"\n      },\n      \"id\": \"variant2\",\n      \"image_id\": 2,\n      \"size\": {\n        \"size\": \"L\",\n        \"stock\": 50\n      },\n      \"sku\": \"SKU456\"\n    }\n  ]\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -21,12 +21,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5001/api/products/",
+					"raw": "http://localhost:9001/api/products/",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5001",
+					"port": "9001",
 					"path": [
 						"api",
 						"products",
@@ -42,12 +42,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5001/api/products/",
+					"raw": "http://localhost:9001/api/products/",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5001",
+					"port": "9001",
 					"path": [
 						"api",
 						"products",
@@ -72,12 +72,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5001/api/users/register",
+					"raw": "http://localhost:9001/api/users/register",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5001",
+					"port": "9001",
 					"path": [
 						"api",
 						"users",
@@ -90,10 +90,29 @@
 		{
 			"name": "login",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"john.doe@example.com\",\n    \"phone\":\"\",\n    \"password\":\"password123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:9001/api/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
 				}
 			},
 			"response": []
@@ -123,12 +142,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5001/api/users/646d128030d3d82b018dc8ca",
+					"raw": "http://localhost:9001/api/users/646d128030d3d82b018dc8ca",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5001",
+					"port": "9001",
 					"path": [
 						"api",
 						"users",
@@ -153,12 +172,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5001/api/products/add-variant?productId=647c3771718ca9459668783f",
+					"raw": "http://localhost:9001/api/products/add-variant?productId=648b12c0a3e97f092fabb427",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5001",
+					"port": "9001",
 					"path": [
 						"api",
 						"products",
@@ -167,7 +186,7 @@
 					"query": [
 						{
 							"key": "productId",
-							"value": "647c3771718ca9459668783f"
+							"value": "648b12c0a3e97f092fabb427"
 						}
 					]
 				}
@@ -180,16 +199,22 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5001/api/products/",
+					"raw": "http://localhost:9001/api/products/?productId=648b15b5eba9f23aae360aa3",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5001",
+					"port": "9001",
 					"path": [
 						"api",
 						"products",
 						""
+					],
+					"query": [
+						{
+							"key": "productId",
+							"value": "648b15b5eba9f23aae360aa3"
+						}
 					]
 				}
 			},

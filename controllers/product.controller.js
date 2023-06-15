@@ -178,7 +178,6 @@ export const getProducts = async (req, res) => {
 export const getProductById = async (req, res) => {
   try {
     const { productId } = req.query;
-
     // Find the product by ID in the database
     const product = await Product.findById({ _id: productId });
 
